@@ -1,0 +1,29 @@
+# Web framework
+fastapi[standard]
+uvicorn[standard]
+
+# Settings / env
+pydantic-settings
+
+# Database
+sqlalchemy[asyncio]
+asyncpg
+alembic
+
+# Auth
+bcrypt
+python-jose[cryptography]
+
+# HTTP client (external APIs)
+httpx
+
+# Cache
+redis
+
+# Scheduler
+apscheduler
+python-dateutil
+
+# Testing
+pytest
+pytest-asyncio
