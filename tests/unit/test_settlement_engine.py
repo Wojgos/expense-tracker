@@ -354,3 +354,24 @@ def test_decimal_transfers_are_rounded():
     for t in transfers:
         assert t.amount == t.amount.quantize(Decimal("0.01"))
         assert t.amount > Decimal("0")
+
+def test_only_settlements_no_expenses():
+    rafal = generatorUuid()
+    domino = generatorUuid()
+
+    settlements = [
+        {"paid_by": rafal, "paid_to": domino, "amount": Decimal("75")},
+    ]
+
+    balances = compute_balances(expenses=[], settlements=settlements)
+    assert balances[rafal] == Decimal("75")
+    assert balances[domino] == Decimal("-75")
+
+def test_suggested_transfer_fields():
+    rafal = generatorUuid()
+    domino = generatorUuid()
+
+    t = SuggestedTransfer(from_user=rafal, to_user=domino, amount=Decimal("123.45"))
+    assert t.from_user == rafal
+    assert t.to_user == domino
+    assert t.amount == Decimal("123.45")
