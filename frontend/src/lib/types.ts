@@ -109,6 +109,14 @@ export interface CurrencyConvertResponse {
   base: string;
   target: string;
   rate: number;
-  original_amount: string;
-  converted_amount: string;
+  original_amount: number;
+  converted_amount: number;
+}
+
+export interface CurrencyConvertApiResponse {
+  base: string;
+  target: string;
+  rate: string | number;
+  original_amount: string | number;
+  converted_amount: string | number;
 }

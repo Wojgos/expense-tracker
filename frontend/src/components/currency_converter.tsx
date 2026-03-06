@@ -85,9 +85,9 @@ export default function CurrencyConverter() {
         {convert.data && (
           <div className="mt-4 rounded-lg bg-indigo-50 px-4 py-3">
             <p className="text-lg font-semibold text-indigo-700">
-              {parseFloat(convert.data.original_amount).toFixed(2)}{" "}
+              {convert.data.original_amount.toFixed(2)}{" "}
               {convert.data.base} ={" "}
-              {parseFloat(convert.data.converted_amount).toFixed(2)}{" "}
+              {convert.data.converted_amount.toFixed(2)}{" "}
               {convert.data.target}
             </p>
             <p className="text-xs text-indigo-500">
