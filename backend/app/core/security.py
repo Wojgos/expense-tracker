@@ -22,8 +22,11 @@ def create_access_token(subject: str, expires_delta: timedelta | None = None) ->
     return jwt.encode(to_encode, settings.secret_key, algorithm=settings.algorithm)
 
 
-def decode_access_token(token: str) -> str | None:
+def decode_access_token(token: str | None) -> str | None:
     """Return the subject (user id) from the token, or None if invalid."""
+    if not token:
+        return None
+
     try:
         payload = jwt.decode(
             token, settings.secret_key, algorithms=[settings.algorithm]
