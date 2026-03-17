@@ -72,3 +72,12 @@
 3. Kliknij ikonę ponownie.
 **Oczekiwany rezultat:** Po pierwszym kliknięciu wszystkie kwoty sald zamieniają się w maskę (np. `*** PLN`). Stan ukrycia zostaje zapamiętany po odświeżeniu. Po ponownym kliknięciu dokładne kwoty są znowu widoczne.
 
+## TC-BAL-010: Usuwanie konta (Account Deletion)
+**Opis:** Weryfikacja, czy użytkownik może bezpowrotnie usunąć swoje konto z systemu, a powiązane z nim transakcje zostaną wyczyszczone.
+**Warunki wstępne:** Użytkownik posiada co najmniej jedno konto (np. z saldem 150 PLN).
+**Kroki:**
+1. Przejdź do zakładki "Balances".
+2. Na karcie wybranego konta kliknij przycisk "Delete" u dołu ekranu.
+3. W oknie dialogowym przeglądarki (alert) potwierdź chęć usunięcia konta klikając "OK".
+**Oczekiwany rezultat:** Konto trwale znika z listy "Your Accounts". Saldo całkowite w polu "Total Balance" zostaje automatycznie pomniejszone o wartość salda usuniętego konta.
+
