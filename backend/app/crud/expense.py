@@ -4,6 +4,7 @@ from decimal import Decimal
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.db.models.account import Account
 from app.db.models.expense import Expense, ExpenseSplit, SplitType
 from app.schemas.expense import ExpenseCreate
 from app.services.split_calculator import (
@@ -53,6 +54,18 @@ async def create_expense(
             expense_id=expense.id, user_id=user_id, owed_amount=owed
         )
         db.add(split)
+
+    # If an account_id is provided, deduct expense amount from the personal account
+    if data.account_id:
+        result = await db.execute(
+            select(Account).where(
+                Account.id == data.account_id,
+                Account.user_id == paid_by,
+            )
+        )
+        account = result.scalar_one_or_none()
+        if account:
+            account.balance -= data.amount
 
     await db.flush()
     return expense

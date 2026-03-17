@@ -11,6 +11,7 @@ from app.api.groups import router as groups_router
 from app.api.recurring import router as recurring_router
 from app.api.settlements import router as settlements_router
 from app.api.ws import router as ws_router
+from app.api.accounts import router as accounts_router
 from app.db.session import engine
 from app.services.currency_service import get_redis
 from app.services.scheduler import process_recurring_expenses
@@ -54,6 +55,7 @@ app.include_router(settlements_router)
 app.include_router(currency_router)
 app.include_router(recurring_router)
 app.include_router(ws_router)
+app.include_router(accounts_router)
 
 
 @app.get("/health")

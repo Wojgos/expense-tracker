@@ -120,3 +120,21 @@ export interface CurrencyConvertApiResponse {
   original_amount: string | number;
   converted_amount: string | number;
 }
+
+export interface Account {
+  id: string;
+  user_id: string;
+  name: string;
+  type: string;
+  balance: string;
+  currency: string;
+}
+
+export interface AccountTransaction {
+  id: string;
+  account_id: string;
+  amount: string;
+  currency: string;
+  description: string;
+  transaction_date: string;
+}

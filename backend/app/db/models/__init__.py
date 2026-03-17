@@ -4,6 +4,8 @@ from app.db.models.expense import Expense, ExpenseSplit, SplitType
 from app.db.models.settlement import Settlement
 from app.db.models.exchange_rate import ExchangeRate
 from app.db.models.recurring_expense import RecurringExpense, RecurrenceInterval
+from app.db.models.account import Account
+from app.db.models.transaction import AccountTransaction
 
 __all__ = [
     "User",
@@ -17,4 +19,6 @@ __all__ = [
     "ExchangeRate",
     "RecurringExpense",
     "RecurrenceInterval",
+    "Account",
+    "AccountTransaction",
 ]

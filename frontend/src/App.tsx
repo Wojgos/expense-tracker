@@ -8,6 +8,7 @@ import LoginPage from "./pages/login_page";
 import RegisterPage from "./pages/register_page";
 import DashboardPage from "./pages/dashboard_page";
 import GroupPage from "./pages/group_page";
+import BalancesPage from "./pages/balances_page";
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 1, refetchOnWindowFocus: false } },
@@ -30,6 +31,7 @@ function App() {
             >
               <Route path="/" element={<DashboardPage />} />
               <Route path="/groups/:groupId" element={<GroupPage />} />
+              <Route path="/balances" element={<BalancesPage />} />
             </Route>
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

@@ -11,6 +11,10 @@ export default function Layout() {
           <Link to="/" className="text-lg font-bold text-indigo-600">
             Smart Expense Buddy
           </Link>
+          <div className="flex gap-4">
+            <Link to="/" className="font-semibold text-gray-700 hover:text-indigo-600">Groups</Link>
+            <Link to="/balances" className="font-semibold text-gray-700 hover:text-indigo-600">Balances</Link>
+          </div>
           <div className="flex items-center gap-4">
             <span className="text-sm text-gray-600">{user?.display_name}</span>
             <button

@@ -24,6 +24,7 @@ class ExpenseCreate(BaseModel):
     exact_amounts: dict[uuid.UUID, Decimal] | None = None
     percentages: dict[uuid.UUID, Decimal] | None = None
     shares: dict[uuid.UUID, int] | None = None
+    account_id: uuid.UUID | None = None  # optional: deduct from personal account
 
     @model_validator(mode="after")
     def validate_split_data(self):

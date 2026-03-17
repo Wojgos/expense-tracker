@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import toast from "react-hot-toast";
 import { useCreateExpense } from "../hooks/use_expenses";
+import { useAccounts } from "../hooks/use_accounts";
 import type { Member, SplitType } from "../lib/types";
 
 interface Props {
@@ -26,6 +27,8 @@ export default function AddExpenseModal({
   );
   const [splitValues, setSplitValues] = useState<Record<string, string>>({});
   const [currency, setCurrency] = useState("PLN");
+  const [accountId, setAccountId] = useState<string>("");
+  const { data: userAccounts } = useAccounts();
 
   const currencies = ["PLN", "EUR", "USD", "GBP", "CHF", "CZK", "SEK", "NOK"];
 
@@ -82,6 +85,7 @@ export default function AddExpenseModal({
       split_type: splitType,
       expense_date: date,
       participant_ids: selectedIds,
+      account_id: accountId || null,
     };
 
     if (splitType === "exact") {
@@ -244,6 +248,25 @@ export default function AddExpenseModal({
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Account to deduct from */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Deduct from account (optional)
+            </label>
+            <select
+              value={accountId}
+              onChange={(e) => setAccountId(e.target.value)}
+              className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            >
+              <option value="">None (don&apos;t deduct)</option>
+              {userAccounts?.map((acc) => (
+                <option key={acc.id} value={acc.id}>
+                  {acc.name} ({acc.type}) — {parseFloat(acc.balance).toFixed(2)} {acc.currency}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div className="flex justify-end gap-3 pt-2">
