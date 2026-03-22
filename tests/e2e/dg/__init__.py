@@ -1,0 +1,1 @@
+# wywołanie: py -m pytest tests/e2e/dg/test_e2e.py -v --headed --slowmo 50
