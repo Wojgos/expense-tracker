@@ -51,7 +51,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       password,
     });
     localStorage.setItem("token", r.data.access_token);
+    
+    // Fetch user data after setting token
+    const user = await api.get<User>("/auth/me", {
+      headers: { Authorization: `Bearer ${r.data.access_token}` },
+    });
+    
     setToken(r.data.access_token);
+    setUser(user.data);
   }
 
   async function register(

@@ -27,3 +27,5 @@ python-dateutil
 # Testing
 pytest
 pytest-asyncio
+playwright
+pytest-playwright
