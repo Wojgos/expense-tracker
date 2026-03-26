@@ -33,7 +33,7 @@
 3. Wróć do zakładki "Balances".
 **Oczekiwany rezultat:** Saldo konta Y oraz saldo całkowite zostały powiększone dokładnie o 2000 PLN.
 
-## TC-BAL-005: Wyświetlanie pustego stanu (Empty State)
+## TC-BAL-005: Wyświetlanie pustego stanu
 **Opis:** Sprawdzenie zachowania zakładki w sytuacji, gdy użytkownik nie założył jeszcze żadnego konta i nie ma historii transakcji.
 **Warunki wstępne:** Nowo zarejestrowane konto użytkownika bez żadnych danych.
 **Kroki:**
