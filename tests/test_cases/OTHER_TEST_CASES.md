@@ -1,34 +1,31 @@
-## TC-NEW-001: Tworzenie wydatku z podziałem procentowym
+## TC-NEW-001: Pobranie szczegółów wydatku po identyfikatorze
 
-**Opis:** Weryfikacja poprawnego tworzenia wydatku grupowego z typem podziału „percent" - system musi walidować, czy podane procenty sumują się do 100%.
+**Opis:** Weryfikacja, czy endpoint szczegółów wydatku zwraca kompletny i spójny zestaw danych (payer, splity, waluta, data), zgodny z rekordem zapisanym w bazie.
 
 **Warunki wstępne:**
-- Użytkownik jest zalogowany i należy do grupy „Wakacje 2026" jako członek lub admin.
-- Grupa posiada co najmniej 3 członków (Ania, Bartek, Celina).
+- Użytkownik jest zalogowany i należy do grupy „Wakacje 2026".
+- W grupie istnieje wcześniej utworzony wydatek o opisie „Kolacja w restauracji" i kwocie 300 PLN.
+- Znany jest identyfikator `expense_id` tego wydatku.
 
 **Kroki testowe:**
 1. Przejdź do strony grupy „Wakacje 2026".
-2. Kliknij przycisk dodawania nowego wydatku.
-3. Wypełnij formularz: opis - „Kolacja w restauracji", kwota - 300 PLN, waluta - PLN, data - 2026-03-18.
-4. Wybierz typ podziału: **Procentowy (percent)**.
-5. Przypisz udziały: Ania - 50%, Bartek - 30%, Celina - 20%.
-6. Zatwierdź formularz.
+2. Otwórz szczegóły wydatku „Kolacja w restauracji" (lub wywołaj endpoint szczegółów po `expense_id`).
+3. Porównaj zwrócone pola z danymi źródłowymi wydatku.
+4. Zweryfikuj listę splitów i kwoty przypisane do uczestników.
 
 **Dane testowe:**
+- `expense_id`: `<ID istniejącego wydatku>`
 - Opis: `Kolacja w restauracji`
 - Kwota: `300`
 - Waluta: `PLN`
-- Typ podziału: `percent`
-- Procenty: `Ania: 50%, Bartek: 30%, Celina: 20%`
 
-**Oczekiwany rezultat:** Wydatek zostaje utworzony. Na liście wydatków widnieje nowa pozycja z kwotami: Ania - 150,00 PLN, Bartek - 90,00 PLN, Celina - 60,00 PLN. Suma podziałów wynosi dokładnie 300,00 PLN.
+**Oczekiwany rezultat:** System zwraca szczegóły wydatku (HTTP 200) z poprawnymi polami: `id`, `group_id`, `paid_by`, `payer_name`, `amount`, `currency`, `description`, `split_type`, `expense_date`, `splits`. Suma wartości w `splits` jest równa 300,00 PLN.
 
-**Warunki końcowe:** Wydatek jest zapisany w bazie danych. Salda grupy zostały zaktualizowane o odpowiednie kwoty dla każdego uczestnika.
+**Warunki końcowe:** Dane w bazie pozostają bez zmian - operacja odczytu nie modyfikuje żadnych rekordów.
 
-**Rzeczywisty rezultat:** Wydatek „Kolacja w restauracji" został poprawnie utworzony i pojawił się na liście wydatków grupy. Funkcja `calculate_percent_split` obliczyła kwoty z zaokrągleniem ROUND_HALF_UP: Ania - 150,00 PLN (50% z 300), Bartek - 90,00 PLN (30% z 300). Kwota Celiny została wyznaczona jako reszta: 300,00 − 150,00 − 90,00 = 60,00 PLN, co gwarantuje, że suma podziałów równa się dokładnie kwocie wydatku. Rekord `expense` oraz powiązane rekordy `expense_splits` zostały zapisane w bazie. Salda grupy zaktualizowały się prawidłowo.
+**Rzeczywisty rezultat:** Endpoint `GET /groups/{group_id}/expenses/{expense_id}` zwrócił status HTTP 200 oraz pełny obiekt `ExpenseResponse`. Zwrócone wartości `amount`, `currency`, `description`, `payer_name` i `expense_date` były zgodne z rekordem źródłowym. Tablica `splits` zawierała komplet uczestników z poprawnymi `owed_amount`, a ich suma była równa kwocie wydatku. Nie stwierdzono zmian w tabelach `expenses` ani `expense_splits` po wykonaniu żądania.
 
 **Status:** Zaliczony
-
 ---
 
 ## TC-NEW-002: Walidacja podziału procentowego - suma różna od 100%
@@ -89,39 +86,38 @@
 
 ---
 
-## TC-NEW-004: Tworzenie i automatyczne generowanie wydatku cyklicznego
+## TC-NEW-004: Usuwanie wydatku - uprawnienia płatnika i członka grupy
 
-**Opis:** Weryfikacja, czy wydatek cykliczny (recurring expense) z interwałem miesięcznym jest prawidłowo tworzony, a scheduler automatycznie generuje z niego nowy wydatek w wyznaczonym terminie.
+**Opis:** Weryfikacja, czy wydatek może usunąć wyłącznie jego płatnik lub admin grupy, a zwykły członek niebędący płatnikiem otrzymuje odmowę (403).
 
 **Warunki wstępne:**
-- Użytkownik jest adminem grupy „Mieszkanie".
-- Grupa posiada 2 członków.
-- Data `next_run` wydatku cyklicznego jest ustawiona na dzisiejszą datę (2026-03-18).
+- W grupie istnieje wydatek „Zakupy" o kwocie 180 PLN, utworzony przez Użytkownika A.
+- Użytkownik B jest członkiem tej samej grupy (rola `member`) i nie jest płatnikiem tego wydatku.
+- Znane jest `expense_id` wydatku „Zakupy".
 
 **Kroki testowe:**
-1. Przejdź do zakładki „Recurring" w grupie „Mieszkanie".
-2. Kliknij przycisk dodawania wydatku cyklicznego.
-3. Wypełnij: opis - „Czynsz", kwota - 2400 PLN, interwał - **miesięczny**, dzień miesiąca - 18, typ podziału - **equal**.
-4. Zatwierdź formularz.
-5. Poczekaj na uruchomienie schedulera (lub wywołaj go ręcznie w testach).
-6. Sprawdź listę wydatków grupy.
+1. Zaloguj się jako Użytkownik B i spróbuj usunąć wydatek „Zakupy".
+2. Zweryfikuj odpowiedź systemu.
+3. Zaloguj się jako Użytkownik A (płatnik) i ponów operację usuwania tego samego wydatku.
+4. Sprawdź listę wydatków grupy po usunięciu.
 
 **Dane testowe:**
-- Opis: `Czynsz`
-- Kwota: `2400`
+- `expense_id`: `<ID wydatku Zakupy>`
+- Płatnik: `Użytkownik A`
+- Nieuprawniony członek: `Użytkownik B`
+- Kwota: `180`
 - Waluta: `PLN`
-- Interwał: `MONTHLY`
-- Dzień miesiąca: `18`
-- Podział: `equal`
 
-**Oczekiwany rezultat:** Wydatek cykliczny pojawia się na liście ze statusem aktywnym. Po uruchomieniu schedulera na liście wydatków grupy pojawia się nowy wydatek „Czynsz" z datą 2026-03-18 i kwotą 1200 PLN na osobę (2400 / 2). Pole `next_run` przesuwa się na 2026-04-18.
+**Oczekiwany rezultat:**
+- Krok 1: system zwraca HTTP 403 z komunikatem o braku uprawnień do usunięcia cudzego wydatku.
+- Krok 3: usunięcie przez płatnika kończy się HTTP 204.
+- Krok 4: wydatek nie jest już widoczny na liście i nie da się go pobrać po `expense_id` (404).
 
-**Warunki końcowe:** W bazie istnieje aktywny rekord `recurring_expense` z zaktualizowaną datą `next_run`. Nowy wydatek grupowy został automatycznie wygenerowany.
+**Warunki końcowe:** Rekord wydatku i powiązane splity zostają usunięte po poprawnej operacji wykonanej przez płatnika/admina.
 
-**Rzeczywisty rezultat:** Wydatek cykliczny „Czynsz" został utworzony i pojawił się na liście w zakładce „Recurring" ze statusem aktywnym. Po ręcznym wywołaniu funkcji `process_recurring_expenses()` scheduler pobrał rekord jako wymagalny (`next_run <= today`). Funkcja `calculate_equal_split` podzieliła kwotę 2400 PLN równo na 2 członków: 1200,00 PLN na osobę. Na liście wydatków grupy pojawił się nowy wpis o opisie „[Recurring] Czynsz" z datą 2026-03-18. Pole `next_run` zostało przesunięte na 2026-04-18 przez funkcję `_compute_next_run` z użyciem `relativedelta(months=1)`. Powiadomienie WebSocket typu `recurring_expense_generated` zostało rozesłane do członków grupy.
+**Rzeczywisty rezultat:** Próba usunięcia przez Użytkownika B zakończyła się HTTP 403 i komunikatem `Only the payer or a group admin can delete this expense`. Następnie żądanie `DELETE /groups/{group_id}/expenses/{expense_id}` wykonane przez Użytkownika A zwróciło HTTP 204. Po operacji wpis „Zakupy" zniknął z listy wydatków, a odczyt po `expense_id` zwracał HTTP 404 (`Expense not found`). Dane powiązane z wydatkiem zostały usunięte spójnie.
 
 **Status:** Zaliczony
-
 ---
 
 ## TC-NEW-005: Konwersja walut z wykorzystaniem kursu NBP
