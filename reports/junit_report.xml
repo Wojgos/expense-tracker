@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="37" skipped="0" tests="211" time="307.158" timestamp="2026-05-06T22:18:34.568378+02:00" hostname="NASK501158-MOB"><testcase classname="tests.e2e.dg.test_e2e" name="test_register_and_login_journey[chromium]" time="11.223" /><testcase classname="tests.e2e.dg.test_e2e" name="test_create_group_and_view_details_journey[chromium]" time="4.599" /><testcase classname="tests.e2e.dg.test_e2e" name="test_add_expense_and_check_balances_journey[chromium]" time="2.853" /><testcase classname="tests.e2e.dg.test_e2e" name="test_account_management_journey[chromium]" time="2.475" /><testcase classname="tests.e2e.dg.test_e2e" name="test_group_tabs_navigation_journey[chromium]" time="5.363" /><testcase classname="tests.e2e.dg.test_e2e" name="test_logout_and_relogin_journey[chromium]" time="3.833" /><testcase classname="tests.e2e.dg.test_e2e" name="test_invalid_credentials_then_success_journey[chromium]" time="5.434" /><testcase classname="tests.e2e.dg.test_e2e" name="test_unauthenticated_redirects_journey[chromium]" time="1.962" /><testcase classname="tests.e2e.test_accounts_balances" name="test_tc_acc_bal_001_empty_state_for_new_user[chromium]" time="2.691" /><testcase classname="tests.e2e.test_accounts_balances" name="test_tc_acc_bal_002_create_first_account_from_empty_state[chromium]" time="2.920" /><testcase classname="tests.e2e.test_accounts_balances" name="test_tc_acc_bal_003_create_second_account_from_header_button[chromium]" time="3.330" /><testcase classname="tests.e2e.test_accounts_balances" name="test_tc_acc_bal_004_create_account_with_custom_currency[chromium]" time="3.085" /><testcase classname="tests.e2e.test_accounts_balances" name="test_tc_acc_bal_005_total_balance_updates_after_multiple_pln_accounts[chromium]" time="3.003" /><testcase classname="tests.e2e.test_accounts_balances" name="test_tc_acc_bal_006_privacy_mode_hides_total_and_account_amounts[chromium]" time="2.788" /><testcase classname="tests.e2e.test_accounts_balances" name="test_tc_acc_bal_007_privacy_mode_toggle_restores_amounts[chromium]" time="2.850" /><testcase classname="tests.e2e.test_accounts_balances" name="test_tc_acc_bal_008_add_income_transaction_increases_account_balance[chromium]" time="3.111" /><testcase classname="tests.e2e.test_accounts_balances" name="test_tc_acc_bal_009_add_expense_transaction_decreases_account_balance[chromium]" time="3.189" /><testcase classname="tests.e2e.test_accounts_balances" name="test_tc_acc_bal_010_delete_account_removes_it_from_list[chromium]" time="3.187" /><testcase classname="tests.e2e.test_expenses" name="test_tc001_add_expense_equal_split[chromium]" time="10.006"><failure message="playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.&#10;Call log:&#10;  - waiting for locator(&quot;a:has-text(\&quot;Test Group 1641\&quot;)&quot;)">tests\e2e\test_expenses.py:20: in test_tc001_add_expense_equal_split
+    page.click(f'a:has-text("{group_name}")')
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\sync_api\_generated.py:9962: in click
+    self._sync(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_page.py:854: in click
+    return await self._main_frame._click(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_frame.py:566: in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:559: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.
+E   Call log:
+E     - waiting for locator("a:has-text(\"Test Group 1641\")")</failure></testcase><testcase classname="tests.e2e.test_expenses" name="test_tc002_add_expense_exact_split[chromium]" time="7.392"><failure message="playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.&#10;Call log:&#10;  - waiting for locator(&quot;a:has-text(\&quot;Test Group 8254\&quot;)&quot;)">tests\e2e\test_expenses.py:68: in test_tc002_add_expense_exact_split
+    page.click(f'a:has-text("{group_name}")')
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\sync_api\_generated.py:9962: in click
+    self._sync(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_page.py:854: in click
+    return await self._main_frame._click(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_frame.py:566: in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:559: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.
+E   Call log:
+E     - waiting for locator("a:has-text(\"Test Group 8254\")")</failure></testcase><testcase classname="tests.e2e.test_expenses" name="test_tc003_add_expense_percent_split[chromium]" time="7.175"><failure message="playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.&#10;Call log:&#10;  - waiting for locator(&quot;a:has-text(\&quot;Test Group 5811\&quot;)&quot;)">tests\e2e\test_expenses.py:119: in test_tc003_add_expense_percent_split
+    page.click(f'a:has-text("{group_name}")')
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\sync_api\_generated.py:9962: in click
+    self._sync(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_page.py:854: in click
+    return await self._main_frame._click(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_frame.py:566: in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:559: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.
+E   Call log:
+E     - waiting for locator("a:has-text(\"Test Group 5811\")")</failure></testcase><testcase classname="tests.e2e.test_expenses" name="test_tc004_add_expense_shares_split[chromium]" time="7.323"><failure message="playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.&#10;Call log:&#10;  - waiting for locator(&quot;a:has-text(\&quot;Test Group 8082\&quot;)&quot;)">tests\e2e\test_expenses.py:172: in test_tc004_add_expense_shares_split
+    page.click(f'a:has-text("{group_name}")')
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\sync_api\_generated.py:9962: in click
+    self._sync(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_page.py:854: in click
+    return await self._main_frame._click(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_frame.py:566: in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:559: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.
+E   Call log:
+E     - waiting for locator("a:has-text(\"Test Group 8082\")")</failure></testcase><testcase classname="tests.e2e.test_expenses" name="test_tc005_add_expense_negative_amount[chromium]" time="2.810"><failure message="AssertionError: assert 'Value must b...qual to 0,01.' == 'Wartość nie ...sza niż 0,01.'&#10;  &#10;  - Wartość nie może być mniejsza niż 0,01.&#10;  + Value must be greater than or equal to 0,01.">tests\e2e\test_expenses.py:253: in test_tc005_add_expense_negative_amount
+    assert validation_message == "Wartość nie może być mniejsza niż 0,01."
+E   AssertionError: assert 'Value must b...qual to 0,01.' == 'Wartość nie ...sza niż 0,01.'
+E     
+E     - Wartość nie może być mniejsza niż 0,01.
+E     + Value must be greater than or equal to 0,01.</failure></testcase><testcase classname="tests.e2e.test_expenses" name="test_tc006_add_expense_no_participants[chromium]" time="7.244"><failure message="playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.&#10;Call log:&#10;  - waiting for locator(&quot;a:has-text(\&quot;Test Group 2000\&quot;)&quot;)">tests\e2e\test_expenses.py:271: in test_tc006_add_expense_no_participants
+    page.click(f'a:has-text("{group_name}")')
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\sync_api\_generated.py:9962: in click
+    self._sync(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_page.py:854: in click
+    return await self._main_frame._click(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_frame.py:566: in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:559: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.
+E   Call log:
+E     - waiting for locator("a:has-text(\"Test Group 2000\")")</failure></testcase><testcase classname="tests.e2e.test_expenses" name="test_tc007_add_expense_future_date[chromium]" time="3.031" /><testcase classname="tests.e2e.test_expenses" name="test_tc008_add_expense_empty_description[chromium]" time="7.114"><failure message="playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.&#10;Call log:&#10;  - waiting for locator(&quot;a:has-text(\&quot;Test Group 2527\&quot;)&quot;)">tests\e2e\test_expenses.py:357: in test_tc008_add_expense_empty_description
+    page.click(f'a:has-text("{group_name}")')
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\sync_api\_generated.py:9962: in click
+    self._sync(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_page.py:854: in click
+    return await self._main_frame._click(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_frame.py:566: in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:559: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.
+E   Call log:
+E     - waiting for locator("a:has-text(\"Test Group 2527\")")</failure></testcase><testcase classname="tests.e2e.test_groups" name="test_tc_grp_001_create_group_creator_is_admin[chromium]" time="2.710" /><testcase classname="tests.e2e.test_groups" name="test_tc_grp_002_admin_can_edit_group_name_and_description[chromium]" time="3.280" /><testcase classname="tests.e2e.test_groups" name="test_tc_grp_003_admin_can_add_member_with_default_member_role[chromium]" time="2.914" /><testcase classname="tests.e2e.test_groups" name="test_tc_grp_004_admin_can_remove_member[chromium]" time="3.221" /><testcase classname="tests.e2e.test_groups" name="test_tc_grp_005_adding_same_member_twice_returns_conflict_message[chromium]" time="3.230" /><testcase classname="tests.e2e.test_groups" name="test_tc_grp_006_non_admin_cannot_edit_delete_or_add_members[chromium]" time="4.432" /><testcase classname="tests.e2e.test_mocked.TestMockGroupsDashboard" name="test_dashboard_displays_mocked_groups[chromium]" time="6.635"><failure message="AssertionError: Locator expected to be visible&#10;Actual value: None&#10;Error: element(s) not found &#10;Call log:&#10;  - Expect &quot;to_be_visible&quot; with timeout 5000ms&#10;  - waiting for locator(&quot;text=Wakacje 2026&quot;)&#10;    - waiting for navigation to finish...&#10;    - navigated to &quot;http://localhost:3000/login&quot;">tests\e2e\test_mocked.py:158: in test_dashboard_displays_mocked_groups
+    expect(page.locator(f"text=Wakacje 2026")).to_be_visible()
+E   AssertionError: Locator expected to be visible
+E   Actual value: None
+E   Error: element(s) not found 
+E   Call log:
+E     - Expect "to_be_visible" with timeout 5000ms
+E     - waiting for locator("text=Wakacje 2026")
+E       - waiting for navigation to finish...
+E       - navigated to "http://localhost:3000/login"</failure></testcase><testcase classname="tests.e2e.test_mocked.TestMockGroupsDashboard" name="test_dashboard_shows_empty_state_when_no_groups[chromium]" time="1.627" /><testcase classname="tests.e2e.test_mocked.TestMockGroupsDashboard" name="test_dashboard_shows_user_display_name[chromium]" time="1.592" /><testcase classname="tests.e2e.test_mocked.TestMockExpenseList" name="test_expense_list_shows_mocked_expenses[chromium]" time="11.632"><failure message="AssertionError: Locator expected to be visible&#10;Actual value: None&#10;Error: element(s) not found &#10;Call log:&#10;  - Expect &quot;to_be_visible&quot; with timeout 10000ms&#10;  - waiting for locator(&quot;text=Kolacja w restauracji&quot;).first">tests\e2e\test_mocked.py:222: in test_expense_list_shows_mocked_expenses
+    expect(page.locator("text=Kolacja w restauracji").first).to_be_visible(timeout=10_000)
+E   AssertionError: Locator expected to be visible
+E   Actual value: None
+E   Error: element(s) not found 
+E   Call log:
+E     - Expect "to_be_visible" with timeout 10000ms
+E     - waiting for locator("text=Kolacja w restauracji").first</failure></testcase><testcase classname="tests.e2e.test_mocked.TestMockExpenseList" name="test_expense_list_shows_payer_names[chromium]" time="6.637"><failure message="AssertionError: Locator expected to be visible&#10;Actual value: None&#10;Error: element(s) not found &#10;Call log:&#10;  - Expect &quot;to_be_visible&quot; with timeout 5000ms&#10;  - waiting for locator(&quot;text=Anna K.&quot;).first">tests\e2e\test_mocked.py:235: in test_expense_list_shows_payer_names
+    expect(page.locator("text=Anna K.").first).to_be_visible()
+E   AssertionError: Locator expected to be visible
+E   Actual value: None
+E   Error: element(s) not found 
+E   Call log:
+E     - Expect "to_be_visible" with timeout 5000ms
+E     - waiting for locator("text=Anna K.").first</failure></testcase><testcase classname="tests.e2e.test_mocked.TestMockExpenseList" name="test_balances_tab_shows_mocked_settlements[chromium]" time="6.743"><failure message="playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.&#10;Call log:&#10;  - waiting for locator(&quot;button:has-text('Balances')&quot;)&#10;    - locator resolved to &lt;button class=&quot;flex-1 rounded-md px-4 py-2 text-sm font-medium transition text-gray-500 hover:text-gray-700&quot;&gt;Balances&lt;/button&gt;&#10;  - attempting click action&#10;    - waiting for navigation to finish...&#10;    - navigated to &quot;http://localhost:3000/login&quot;&#10;    - waiting for element to be visible, enabled and stable&#10;  - element was detached from the DOM, retrying">tests\e2e\test_mocked.py:244: in test_balances_tab_shows_mocked_settlements
+    page.click("button:has-text('Balances')")
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\sync_api\_generated.py:9962: in click
+    self._sync(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_page.py:854: in click
+    return await self._main_frame._click(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_frame.py:566: in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:559: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.
+E   Call log:
+E     - waiting for locator("button:has-text('Balances')")
+E       - locator resolved to &lt;button class="flex-1 rounded-md px-4 py-2 text-sm font-medium transition text-gray-500 hover:text-gray-700"&gt;Balances&lt;/button&gt;
+E     - attempting click action
+E       - waiting for navigation to finish...
+E       - navigated to "http://localhost:3000/login"
+E       - waiting for element to be visible, enabled and stable
+E     - element was detached from the DOM, retrying</failure></testcase><testcase classname="tests.e2e.test_mocked.TestMockAccounts" name="test_accounts_page_shows_mocked_accounts[chromium]" time="6.692"><failure message="AssertionError: Locator expected to be visible&#10;Actual value: None&#10;Error: element(s) not found &#10;Call log:&#10;  - Expect &quot;to_be_visible&quot; with timeout 5000ms&#10;  - waiting for locator(&quot;text=1250.50&quot;).first">tests\e2e\test_mocked.py:266: in test_accounts_page_shows_mocked_accounts
+    expect(page.locator("text=1250.50").first).to_be_visible()
+E   AssertionError: Locator expected to be visible
+E   Actual value: None
+E   Error: element(s) not found 
+E   Call log:
+E     - Expect "to_be_visible" with timeout 5000ms
+E     - waiting for locator("text=1250.50").first</failure></testcase><testcase classname="tests.e2e.test_mocked.TestMockAccounts" name="test_accounts_empty_state_with_no_accounts[chromium]" time="1.858" /><testcase classname="tests.e2e.test_mocked.TestMockAccounts" name="test_accounts_total_balance_calculated[chromium]" time="6.818"><failure message="AssertionError: Locator expected to be visible&#10;Actual value: None&#10;Error: element(s) not found &#10;Call log:&#10;  - Expect &quot;to_be_visible&quot; with timeout 5000ms&#10;  - waiting for locator(&quot;text=6680.50&quot;).first">tests\e2e\test_mocked.py:299: in test_accounts_total_balance_calculated
+    expect(page.locator("text=6680.50").first).to_be_visible(timeout=5_000)
+E   AssertionError: Locator expected to be visible
+E   Actual value: None
+E   Error: element(s) not found 
+E   Call log:
+E     - Expect "to_be_visible" with timeout 5000ms
+E     - waiting for locator("text=6680.50").first</failure></testcase><testcase classname="tests.e2e.test_mocked.TestMockCurrencyAPI" name="test_currency_rate_mocked_from_external_api[chromium]" time="1.526" /><testcase classname="tests.e2e.test_mocked.TestMockCurrencyAPI" name="test_api_error_handled_gracefully[chromium]" time="3.538" /><testcase classname="tests.e2e.test_mocked.TestMockCurrencyAPI" name="test_slow_api_response_shows_loading_state[chromium]" time="16.558"><failure message="AssertionError: Locator expected to be visible&#10;Actual value: None&#10;Error: element(s) not found &#10;Call log:&#10;  - Expect &quot;to_be_visible&quot; with timeout 15000ms&#10;  - waiting for locator(&quot;text=Wakacje 2026&quot;)">tests\e2e\test_mocked.py:372: in test_slow_api_response_shows_loading_state
+    expect(page.locator("text=Wakacje 2026")).to_be_visible(timeout=15_000)
+E   AssertionError: Locator expected to be visible
+E   Actual value: None
+E   Error: element(s) not found 
+E   Call log:
+E     - Expect "to_be_visible" with timeout 15000ms
+E     - waiting for locator("text=Wakacje 2026")</failure></testcase><testcase classname="tests.e2e.test_mocked.TestMockMembersTab" name="test_members_tab_shows_all_group_members[chromium]" time="6.668"><failure message="playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.&#10;Call log:&#10;  - waiting for locator(&quot;button:has-text('Members')&quot;)&#10;    - locator resolved to &lt;button class=&quot;flex-1 rounded-md px-4 py-2 text-sm font-medium transition text-gray-500 hover:text-gray-700&quot;&gt;Members (3)&lt;/button&gt;&#10;  - attempting click action&#10;    - waiting for&quot; http://localhost:3000/login&quot; navigation to finish...&#10;    - navigated to &quot;http://localhost:3000/login&quot;&#10;    - waiting for element to be visible, enabled and stable&#10;  - element was detached from the DOM, retrying">tests\e2e\test_mocked.py:402: in test_members_tab_shows_all_group_members
+    page.click("button:has-text('Members')")
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\sync_api\_generated.py:9962: in click
+    self._sync(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_page.py:854: in click
+    return await self._main_frame._click(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_frame.py:566: in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:559: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.
+E   Call log:
+E     - waiting for locator("button:has-text('Members')")
+E       - locator resolved to &lt;button class="flex-1 rounded-md px-4 py-2 text-sm font-medium transition text-gray-500 hover:text-gray-700"&gt;Members (3)&lt;/button&gt;
+E     - attempting click action
+E       - waiting for" http://localhost:3000/login" navigation to finish...
+E       - navigated to "http://localhost:3000/login"
+E       - waiting for element to be visible, enabled and stable
+E     - element was detached from the DOM, retrying</failure></testcase><testcase classname="tests.e2e.test_mocked.TestMockMembersTab" name="test_members_tab_shows_admin_role[chromium]" time="7.252"><failure message="playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.&#10;Call log:&#10;  - waiting for locator(&quot;button:has-text('Members')&quot;)">tests\e2e\test_mocked.py:414: in test_members_tab_shows_admin_role
+    page.click("button:has-text('Members')")
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\sync_api\_generated.py:9962: in click
+    self._sync(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_page.py:854: in click
+    return await self._main_frame._click(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_frame.py:566: in _click
+    await self._channel.send("click", self._timeout, locals_to_params(locals()))
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:69: in send
+    return await self._connection.wrap_api_call(
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\playwright\_impl\_connection.py:559: in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E   playwright._impl._errors.TimeoutError: Page.click: Timeout 5000ms exceeded.
+E   Call log:
+E     - waiting for locator("button:has-text('Members')")</failure></testcase><testcase classname="tests.e2e.test_mocked.TestMockMembersTab" name="test_group_header_shows_mocked_group_name[chromium]" time="12.641"><failure message="AssertionError: Locator expected to be visible&#10;Actual value: None&#10;Error: element(s) not found &#10;Call log:&#10;  - Expect &quot;to_be_visible&quot; with timeout 10000ms&#10;  - waiting for locator(&quot;h1&quot;).filter(has_text=&quot;Wakacje 2026&quot;)">tests\e2e\test_mocked.py:424: in test_group_header_shows_mocked_group_name
+    expect(page.locator("h1", has_text="Wakacje 2026")).to_be_visible(timeout=10_000)
+E   AssertionError: Locator expected to be visible
+E   Actual value: None
+E   Error: element(s) not found 
+E   Call log:
+E     - Expect "to_be_visible" with timeout 10000ms
+E     - waiting for locator("h1").filter(has_text="Wakacje 2026")</failure></testcase><testcase classname="tests.e2e.test_recurring_expenses" name="test_tc_rec_001_create_monthly_recurring_success[chromium]" time="4.158" /><testcase classname="tests.e2e.test_recurring_expenses" name="test_tc_rec_002_create_weekly_recurring_success[chromium]" time="4.318" /><testcase classname="tests.e2e.test_recurring_expenses" name="test_tc_rec_003_deactivate_recurring_success[chromium]" time="4.012" /><testcase classname="tests.e2e.test_recurring_expenses" name="test_tc_rec_004_cancel_recurring_modal[chromium]" time="3.871" /><testcase classname="tests.e2e.test_recurring_expenses" name="test_tc_rec_005_create_recurring_empty_description[chromium]" time="3.907" /><testcase classname="tests.e2e.test_recurring_expenses" name="test_tc_rec_006_create_recurring_negative_amount[chromium]" time="3.885" /><testcase classname="tests.e2e.test_storage_state" name="test_storage_state_dashboard_access_without_login[chromium]" time="10.293" /><testcase classname="tests.e2e.test_storage_state" name="test_storage_state_create_group_without_login[chromium]" time="6.875" /><testcase classname="tests.e2e.test_storage_state" name="test_storage_state_navigate_balances_without_login[chromium]" time="4.615" /><testcase classname="tests.e2e.test_api.TestAuthAPI" name="test_register_returns_user_data" time="0.536" /><testcase classname="tests.e2e.test_api.TestAuthAPI" name="test_register_duplicate_email_returns_409" time="0.979" /><testcase classname="tests.e2e.test_api.TestAuthAPI" name="test_login_returns_token" time="0.480" /><testcase classname="tests.e2e.test_api.TestAuthAPI" name="test_login_invalid_password_returns_401" time="0.470" /><testcase classname="tests.e2e.test_api.TestAuthAPI" name="test_me_returns_current_user" time="0.054" /><testcase classname="tests.e2e.test_api.TestAuthAPI" name="test_me_without_token_returns_401" time="0.025" /><testcase classname="tests.e2e.test_api.TestGroupAPI" name="test_create_group_returns_201" time="0.080" /><testcase classname="tests.e2e.test_api.TestGroupAPI" name="test_add_member_to_group" time="1.137" /><testcase classname="tests.e2e.test_api.TestGroupAPI" name="test_non_member_cannot_access_group" time="0.122" /><testcase classname="tests.e2e.test_api.TestExpenseAPI" name="test_create_expense_equal_split" time="0.224" /><testcase classname="tests.e2e.test_api.TestExpenseAPI" name="test_get_expense_by_id" time="0.285" /><testcase classname="tests.e2e.test_api.TestExpenseAPI" name="test_delete_expense" time="0.289" /><testcase classname="tests.e2e.test_api.TestAccountAPI" name="test_create_account" time="0.076" /><testcase classname="tests.e2e.test_api.TestAccountAPI" name="test_list_accounts" time="0.070" /><testcase classname="tests.e2e.test_api.TestAccountAPI" name="test_create_transaction_income" time="0.135" /><testcase classname="tests.e2e.test_api.TestSettlementAPI" name="test_get_settlement_summary" time="0.513" /><testcase classname="tests.e2e.test_api.TestSettlementAPI" name="test_create_settlement" time="0.238" /><testcase classname="tests.e2e.test_api.TestSettlementAPI" name="test_unauthorized_access_returns_401" time="0.251" /><testcase classname="tests.unit.test_expense_schema" name="test_equal_split_valid" time="0.003" /><testcase classname="tests.unit.test_expense_schema" name="test_negative_amount_raises_error" time="0.002" /><testcase classname="tests.unit.test_expense_schema" name="test_zero_amount_raises_error" time="0.002" /><testcase classname="tests.unit.test_expense_schema" name="test_empty_participant_ids_raises_error" time="0.002" /><testcase classname="tests.unit.test_expense_schema" name="test_exact_split_valid" time="0.002" /><testcase classname="tests.unit.test_expense_schema" name="test_exact_split_missing_details_raises_error" time="0.002" /><testcase classname="tests.unit.test_expense_schema" name="test_exact_split_wrong_details_raises_error" time="0.002" /><testcase classname="tests.unit.test_expense_schema" name="test_exact_split_extra_key_raises_error" time="0.002" /><testcase classname="tests.unit.test_expense_schema" name="test_percent_split_valid" time="0.002" /><testcase classname="tests.unit.test_expense_schema" name="test_percent_split_missing_details_raises_error" time="0.002" /><testcase classname="tests.unit.test_expense_schema" name="test_percent_split_wrong_details_raises_error" time="0.003" /><testcase classname="tests.unit.test_expense_schema" name="test_percent_split_extra_key_raises_error" time="0.002" /><testcase classname="tests.unit.test_expense_schema" name="test_shares_split_valid" time="0.002" /><testcase classname="tests.unit.test_expense_schema" name="test_shares_split_missing_details_raises_error" time="0.002" /><testcase classname="tests.unit.test_expense_schema" name="test_shares_split_wrong_details_raises_error" time="0.002" /><testcase classname="tests.unit.test_expense_schema" name="test_shares_split_extra_key_raises_error" time="0.004" /><testcase classname="tests.unit.test_group_crud.TestGroupCRUD" name="test_create_group_creator_gets_admin_role" time="0.012"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_group_crud.TestGroupCRUD" name="test_create_group_no_description" time="0.013"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_group_crud.TestGroupCRUD" name="test_get_group_by_id_not_found" time="0.015"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_group_crud.TestGroupCRUD" name="test_update_group_only_name" time="0.017"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_group_crud.TestGroupCRUD" name="test_update_group_both_fields" time="0.012"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_group_crud.TestGroupCRUD" name="test_delete_group_calls_delete_and_flush" time="0.013"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_group_crud.TestGroupCRUD" name="test_get_user_membership_not_found" time="0.013"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_group_crud.TestGroupCRUD" name="test_add_member_default_role" time="0.014"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_group_crud.TestGroupCRUD" name="test_add_member_admin_role" time="0.012"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_group_crud.TestGroupCRUD" name="test_remove_member_calls_delete" time="0.013"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_group_crud.TestSettlementCRUD" name="test_create_settlement_fields" time="0.015"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_group_crud.TestSettlementCRUD" name="test_create_settlement_custom_currency" time="0.012"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_group_crud.TestSettlementCRUD" name="test_get_settlements_empty" time="0.016"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_group_crud.TestExpenseCRUD" name="test_create_expense_stores_fields" time="0.012"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_group_crud.TestExpenseCRUD" name="test_get_expense_by_id_not_found" time="0.015"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_group_crud.TestExpenseCRUD" name="test_delete_expense_calls_delete" time="0.012"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_group_crud.TestExpenseCRUD" name="test_compute_splits_shares_proportional" time="0.003" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunWeekly" name="test_weekly_adds_7_days" time="0.002" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunWeekly" name="test_weekly_crosses_month_boundary" time="0.004" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunWeekly" name="test_weekly_crosses_year_boundary" time="0.002" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunWeekly" name="test_weekly_leap_year_boundary" time="0.002" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunWeekly" name="test_weekly_non_leap_year_boundary" time="0.002" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunWeekly" name="test_weekly_result_is_date_object" time="0.002" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunWeekly" name="test_weekly_multiple_iterations" time="0.002" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunMonthly" name="test_monthly_standard" time="0.002" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunMonthly" name="test_monthly_crosses_year_boundary" time="0.001" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunMonthly" name="test_monthly_end_of_month_31_to_30" time="0.002" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunMonthly" name="test_monthly_end_of_month_31_to_30_days_month" time="0.002" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunMonthly" name="test_monthly_leap_year_february" time="0.002" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunMonthly" name="test_monthly_preserves_day_when_possible" time="0.001" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunMonthly" name="test_monthly_result_is_date_object" time="0.003" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunMonthly" name="test_monthly_multiple_iterations_equals_one_year" time="0.002" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunYearly" name="test_yearly_standard" time="0.002" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunYearly" name="test_yearly_leap_day_to_non_leap_year" time="0.002" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunYearly" name="test_yearly_crosses_century" time="0.003" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunYearly" name="test_yearly_result_is_date_object" time="0.002" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunYearly" name="test_yearly_multiple_iterations" time="0.002" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunYearly" name="test_yearly_to_leap_year" time="0.003" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunComparisons" name="test_weekly_shorter_than_monthly" time="0.003" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunComparisons" name="test_monthly_shorter_than_yearly" time="0.002" /><testcase classname="tests.unit.test_scheduler.TestComputeNextRunComparisons" name="test_all_intervals_return_future_date" time="0.002" /><testcase classname="tests.unit.test_schemas" name="test_user_create_invalid_email_raises" time="0.003" /><testcase classname="tests.unit.test_schemas" name="test_user_create_missing_password_raises" time="0.020" /><testcase classname="tests.unit.test_schemas" name="test_token_default_type_is_bearer" time="0.002" /><testcase classname="tests.unit.test_schemas" name="test_user_login_invalid_email_raises" time="0.003" /><testcase classname="tests.unit.test_schemas" name="test_group_create_missing_name_raises" time="0.002" /><testcase classname="tests.unit.test_schemas" name="test_group_update_both_none_allowed" time="0.002" /><testcase classname="tests.unit.test_schemas" name="test_member_response_role_admin" time="0.002" /><testcase classname="tests.unit.test_schemas" name="test_expense_create_currency_defaults_to_pln" time="0.002" /><testcase classname="tests.unit.test_schemas" name="test_expense_create_currency_override" time="0.002" /><testcase classname="tests.unit.test_schemas" name="test_expense_create_shares_unequal_values" time="0.001" /><testcase classname="tests.unit.test_schemas" name="test_settlement_create_default_currency" time="0.002" /><testcase classname="tests.unit.test_schemas" name="test_convert_request_defaults" time="0.002" /><testcase classname="tests.unit.test_schemas" name="test_convert_response_fields" time="0.002" /><testcase classname="tests.unit.test_security.TestHashPassword" name="test_hash_password_returns_string" time="0.531" /><testcase classname="tests.unit.test_security.TestHashPassword" name="test_hash_password_different_salts" time="1.070" /><testcase classname="tests.unit.test_security.TestHashPassword" name="test_hash_password_not_empty" time="0.553" /><testcase classname="tests.unit.test_security.TestVerifyPassword" name="test_verify_password_various_formats[short]" time="1.072" /><testcase classname="tests.unit.test_security.TestVerifyPassword" name="test_verify_password_various_formats[VeryLongPassword123!@#]" time="1.056" /><testcase classname="tests.unit.test_security.TestVerifyPassword" name="test_verify_password_various_formats[ ]" time="1.122" /><testcase classname="tests.unit.test_security.TestVerifyPassword" name="test_verify_password_various_formats[za\u017c\xf3\u0142\u0107 g\u0119\u015bl\u0105 ja\u017a\u0144]" time="1.047" /><testcase classname="tests.unit.test_security.TestVerifyPassword" name="test_verify_password_various_formats[12345678]" time="1.065" /><testcase classname="tests.unit.test_security.TestVerifyPassword" name="test_verify_password_fail" time="1.078" /><testcase classname="tests.unit.test_security.TestCreateAccessToken" name="test_create_access_token_default_expiry" time="0.040" /><testcase classname="tests.unit.test_security.TestCreateAccessToken" name="test_create_access_token_custom_expiry" time="0.007" /><testcase classname="tests.unit.test_security.TestCreateAccessToken" name="test_create_access_token_subject_in_payload" time="0.005" /><testcase classname="tests.unit.test_security.TestDecodeAccessToken" name="test_decode_access_token_valid" time="0.005" /><testcase classname="tests.unit.test_security.TestDecodeAccessToken" name="test_decode_access_token_expired" time="0.003" /><testcase classname="tests.unit.test_security.TestDecodeAccessToken" name="test_decode_access_token_invalid_cases[invalid.jwt.token]" time="0.002" /><testcase classname="tests.unit.test_security.TestDecodeAccessToken" name="test_decode_access_token_invalid_cases[eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.YmFkX2RhdGE.signature]" time="0.004" /><testcase classname="tests.unit.test_security.TestDecodeAccessToken" name="test_decode_access_token_invalid_cases[]" time="0.003" /><testcase classname="tests.unit.test_security.TestDecodeAccessToken" name="test_decode_access_token_invalid_cases[None]" time="0.003" /><testcase classname="tests.unit.test_security.TestDecodeAccessToken" name="test_decode_access_token_invalid_cases[totally-not-a-token]" time="0.004" /><testcase classname="tests.unit.test_settlement_engine" name="test_single_expense_two_participants" time="0.002" /><testcase classname="tests.unit.test_settlement_engine" name="test_multiple_expenses_cumulative" time="0.002" /><testcase classname="tests.unit.test_settlement_engine" name="test_settlement_reduces_debt" time="0.002" /><testcase classname="tests.unit.test_settlement_engine" name="test_empty_data_returns_empty" time="0.001" /><testcase classname="tests.unit.test_settlement_engine" name="test_payer_also_in_splits" time="0.001" /><testcase classname="tests.unit.test_settlement_engine" name="test_many_settlements_same_people" time="0.002" /><testcase classname="tests.unit.test_settlement_engine" name="test_simple_settlement" time="0.002" /><testcase classname="tests.unit.test_settlement_engine" name="test_three_way_settlement" time="0.002" /><testcase classname="tests.unit.test_settlement_engine" name="test_participants_with_zero_balance" time="0.002" /><testcase classname="tests.unit.test_settlement_engine" name="test_balances_below_treshhold_are_ignored" time="0.001" /><testcase classname="tests.unit.test_settlement_engine" name="test_complex_settlement" time="0.003" /><testcase classname="tests.unit.test_settlement_engine" name="test_decimal_transfers_are_rounded" time="0.002" /><testcase classname="tests.unit.test_settlement_engine" name="test_only_settlements_no_expenses" time="0.002" /><testcase classname="tests.unit.test_settlement_engine" name="test_suggested_transfer_fields" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateEqualSplit" name="test_equal_split_perfect_division" time="0.003" /><testcase classname="tests.unit.test_split_calculator.TestCalculateEqualSplit" name="test_equal_split_with_remainder" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateEqualSplit" name="test_equal_split_small_amount_two_people" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateEqualSplit" name="test_equal_split_single_person" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateEqualSplit" name="test_equal_split_zero_amount" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateEqualSplit" name="test_equal_split_large_group" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateEqualSplit" name="test_equal_split_large_amount_precision" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateEqualSplit" name="test_equal_split_empty_list_raises_error" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateExactSplit" name="test_exact_split_correct_sum" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateExactSplit" name="test_exact_split_sum_too_small" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateExactSplit" name="test_exact_split_sum_too_large" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateExactSplit" name="test_exact_split_all_zeros" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateExactSplit" name="test_exact_split_empty_dict" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateExactSplit" name="test_exact_split_negative_amounts" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculatePercentSplit" name="test_percent_split_standard_distribution" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculatePercentSplit" name="test_percent_split_uneven_percentages" time="0.003" /><testcase classname="tests.unit.test_split_calculator.TestCalculatePercentSplit" name="test_percent_split_sum_less_than_100" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculatePercentSplit" name="test_percent_split_sum_greater_than_100" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculatePercentSplit" name="test_percent_split_single_person_100_percent" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculatePercentSplit" name="test_percent_split_with_zero_percentages" time="0.003" /><testcase classname="tests.unit.test_split_calculator.TestCalculatePercentSplit" name="test_percent_split_small_amount_precision" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculatePercentSplit" name="test_percent_split_key_order_last_gets_remainder" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateSharesSplit" name="test_shares_split_equal_shares" time="0.003" /><testcase classname="tests.unit.test_split_calculator.TestCalculateSharesSplit" name="test_shares_split_proportional_2_1_1" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateSharesSplit" name="test_shares_split_equal_with_remainder" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateSharesSplit" name="test_shares_split_zero_shares_raises_error" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateSharesSplit" name="test_shares_split_very_large_shares" time="0.003" /><testcase classname="tests.unit.test_split_calculator.TestCalculateSharesSplit" name="test_shares_split_many_equal_shares" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateSharesSplit" name="test_shares_split_single_person" time="0.002" /><testcase classname="tests.unit.test_split_calculator.TestCalculateSharesSplit" name="test_shares_split_fractional_result_precision" time="0.004" /><testcase classname="tests.unit.test_user.TestUserCRUD" name="test_get_user_by_email_found" time="0.014"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_user.TestUserCRUD" name="test_get_user_by_email_not_found" time="0.012"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_user.TestUserCRUD" name="test_get_user_by_id" time="0.011"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase><testcase classname="tests.unit.test_user.TestUserCRUD" name="test_create_user" time="0.230"><failure message="RuntimeError: Runner.run() cannot be called from a running event loop">..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:469: in runtest
+    super().runtest()
+..\..\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytest_asyncio\plugin.py:716: in inner
+    runner.run(coro, context=context)
+..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:93: in run
+    raise RuntimeError(
+E   RuntimeError: Runner.run() cannot be called from a running event loop</failure></testcase></testsuite></testsuites>

@@ -50,7 +50,6 @@ desktop.ini
 .pytest_cache/
 .coverage
 htmlcov/
-reports/
 
 # Misc
 *.bak
