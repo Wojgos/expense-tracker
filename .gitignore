@@ -50,7 +50,11 @@ desktop.ini
 .pytest_cache/
 .coverage
 htmlcov/
+reports/
 
 # Misc
 *.bak
 *.tmp
+
+# Documentation (only PDF in docs/)
+docs/*.md
