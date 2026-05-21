@@ -69,6 +69,15 @@ def _get_group_api(page: Page, group_id: str) -> dict:
     return response.json()
 
 
+def _list_my_groups(page: Page) -> list[dict]:
+    response = page.request.get(
+        f"{BASE_URL}/api/groups/",
+        headers=_auth_headers(page),
+    )
+    assert response.status == 200, response.text()
+    return response.json()
+
+
 def _member_role(group_json: dict, user_id: str) -> str | None:
     for member in group_json["members"]:
         if member["user_id"] == user_id:
@@ -206,4 +215,64 @@ def test_tc_grp_006_non_admin_cannot_edit_delete_or_add_members(page: Page, test
         headers=_auth_headers(page),
     )
     assert add_resp.status == 403
+
+
+def test_tc_grp_007_admin_can_delete_group(page: Page, test_users_credentials, _register_test_users):
+    user1 = test_users_credentials["user1"]
+    _login(page, user1["email"], user1["password"])
+
+    group_name = f"Group Delete {random.randint(1, 100000)}"
+    group_id = _create_group_and_open(page, group_name)
+
+    expect(page.locator('button:has-text("Delete")')).to_be_visible()
+    page.once("dialog", lambda dialog: dialog.accept())
+    page.click('button:has-text("Delete")')
+
+    expect(page.locator("text=Group deleted")).to_be_visible(timeout=10000)
+    expect(page.locator("a", has_text=group_name)).not_to_be_visible(timeout=4000)
+
+    # Backend: the group should be gone.
+    delete_check = page.request.get(
+        f"{BASE_URL}/api/groups/{group_id}",
+        headers=_auth_headers(page),
+    )
+    assert delete_check.status == 404
+
+    my_groups = _list_my_groups(page)
+    assert all(g["name"] != group_name for g in my_groups)
+
+
+def test_tc_grp_008_removed_member_cannot_access_group(page: Page, test_users_credentials, _register_test_users):
+    user1 = test_users_credentials["user1"]
+    user2 = test_users_credentials["user2"]
+    reg_user2 = _register_test_users["user2"]
+
+    _login(page, user1["email"], user1["password"])
+    group_name = f"Group Access {random.randint(1, 100000)}"
+    group_id = _create_group_and_open(page, group_name)
+
+    _open_members_tab(page)
+    _add_member_from_modal(page, user2["email"], user2["display_name"])
+    expect(page.locator(f'text={user2["display_name"]} added to the group')).to_be_visible()
+
+    page.once("dialog", lambda dialog: dialog.accept())
+    member_row = page.locator("div.rounded-xl.border.border-gray-200", has_text=user2["display_name"]).first
+    member_row.locator('button:has-text("Remove")').click()
+    expect(page.locator(f'text={user2["display_name"]} removed')).to_be_visible()
+
+    _logout(page)
+    _login(page, user2["email"], user2["password"])
+
+    page.goto(f"{BASE_URL}/")
+    expect(page.locator("a", has_text=group_name)).not_to_be_visible(timeout=4000)
+
+    # Backend: former member cannot fetch the group details anymore.
+    forbidden_check = page.request.get(
+        f"{BASE_URL}/api/groups/{group_id}",
+        headers=_auth_headers(page),
+    )
+    assert forbidden_check.status == 403
+
+    my_groups = _list_my_groups(page)
+    assert all(g["name"] != group_name for g in my_groups)
 

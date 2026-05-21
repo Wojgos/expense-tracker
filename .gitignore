@@ -57,3 +57,5 @@ htmlcov/
 
 # Documentation (only PDF in docs/)
 docs/*.md
+
+ARCHITECTURE_NOTES.md
